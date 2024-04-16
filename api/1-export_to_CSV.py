@@ -4,9 +4,9 @@
     information about given employee ID
     and export data in the CSV format.
 """
-import sys
-import requests
 import csv
+import requests
+import sys
 
 
 def get_employee_todo_progress(employee_id):
