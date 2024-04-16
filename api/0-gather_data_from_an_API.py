@@ -13,7 +13,8 @@ def get_employee_todo_progress(employee_id):
         and exports the data to a CSV file.
 
         Args:
-            employee_id (int): The ID of the employee whose TODO list progress is to be fetched.
+            employee_id (int): The ID of the employee whose TODO
+            list progress is to be fetched.
 
         Returns:
             None
