@@ -51,5 +51,5 @@ if __name__ == "__main__":
         print("Usage: python3 script_name.py employee_id")
         sys.exit(1)
 
-    employee_id = sys.argv[1]
+    employee_id = int(sys.argv[1])
     get_employee_todo_progress(employee_id)
