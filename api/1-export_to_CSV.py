@@ -25,27 +25,25 @@ def get_employee_todo_progress(employee_id):
     user_url = f'{base_url}/users/{employee_id}'
     todos_url = f'{base_url}/todos?userId={employee_id}'
 
-    # Fetch user data
     user_response = requests.get(user_url)
     user_data = user_response.json()
-    user_id = user_data['id']
-    employee_name = user_data['name']
+    user_name = user_data.get('name')
 
-    # Fetch TODO list data
     todos_response = requests.get(todos_url)
     todos_data = todos_response.json()
 
-    # Write data to CSV file
-    filename = f'{user_id}.csv'
-    with open(filename, 'w', newline='') as csvfile:
-        csv_writer = csv.writer(csvfile)
-        csv_writer.writerow(['USER_ID', 'USERNAME',
-                             'TASK_COMPLETED_STATUS', 'TASK_TITLE'])
-        for todo in todos_data:
-            csv_writer.writerow([user_id, employee_name,
-                                 todo['completed'], todo['title']])
+    csv_filename = f'{employee_id}.csv'
+    with open(csv_filename, mode='w', newline='') as csv_file:
+        csv_writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
 
-    print(f'Data exported to {filename}')
+        for task in todos_data:
+            task_completed_status = 'True' if task.get('completed')\
+                                    else 'False'
+            formatted_row = [employee_id,
+                             user_name,
+                             task_completed_status,
+                             task.get('title')]
+            csv_writer.writerow(formatted_row)
 
 
 if __name__ == "__main__":
