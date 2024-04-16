@@ -21,9 +21,9 @@ def get_employee_todo_progress(employee_id):
         Returns:
             None
     """
-    base_url = 'https://jsonplaceholder.typicode.com'
-    user_url = f'{base_url}/users/{employee_id}'
-    todos_url = f'{base_url}/todos?userId={employee_id}'
+    base_url = "https://jsonplaceholder.typicode.com"
+    user_url = "{}/users/{}".format(base_url, employee_id)
+    todos_url = "{}/todos?userId={}".format(base_url, employee_id)
 
     user_response = requests.get(user_url)
     user_data = user_response.json()
