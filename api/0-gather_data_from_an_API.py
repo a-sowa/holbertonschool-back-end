@@ -8,6 +8,16 @@ import requests
 
 
 def get_employee_todo_progress(employee_id):
+    """
+        Fetches TODO list progress for a given employee ID from a REST API
+        and exports the data to a CSV file.
+
+        Args:
+            employee_id (int): The ID of the employee whose TODO list progress is to be fetched.
+
+        Returns:
+            None
+    """
     base_url = 'https://jsonplaceholder.typicode.com'
     user_url = f'{base_url}/users/{employee_id}'
     todos_url = f'{base_url}/todos?userId={employee_id}'
