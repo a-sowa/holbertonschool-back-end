@@ -8,13 +8,14 @@ import json
 import requests
 import sys
 
+
 def get_employee_todo_progress(employee_id):
     """
         Fetches TODO list progress for a given employee ID from a REST API
         and exports the data to a JSON file.
 
         Args:
-            employee_id (int): The ID of the employee whose TODO 
+            employee_id (int): The ID of the employee whose TODO
             list progress is to be fetched.
 
         Returns:
@@ -48,6 +49,6 @@ if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: python3 script_name.py employee_id")
         sys.exit(1)
-    
+
     employee_id = sys.argv[1]
     get_employee_todo_progress(employee_id)
