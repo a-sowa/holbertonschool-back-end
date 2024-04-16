@@ -4,8 +4,8 @@
     information about given employee ID
     and export data in the JSON format.
 """
-import requests
 import json
+import requests
 
 
 def get_todo_all_employees():
