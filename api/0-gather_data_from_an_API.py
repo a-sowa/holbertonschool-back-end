@@ -25,7 +25,7 @@ def get_employee_todo_progress(employee_id):
 
     user_response = requests.get(user_url)
     user_data = user_response.json()
-    employee_name = user_data['name']
+    employee_name = user_data.get('name')
 
     todos_response = requests.get(todos_url)
     todos_data = todos_response.json()
